@@ -1,7 +1,7 @@
 const articleForm = document.querySelector('#articleForm');
 const addArticle  = document.querySelector('#addArticle');
 
-articleForm.addEventListener('submit', (e) => {
+articleForm.addEventListener('submit', e => {
     e.preventDefault();
     let formData = new FormData(e.target);
 

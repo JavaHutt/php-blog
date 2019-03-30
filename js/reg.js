@@ -2,7 +2,7 @@ const regForm = document.querySelector('#regForm');
 const regUser = document.querySelector('#regUser');
 const error   = document.querySelector('#error');
 
-regForm.addEventListener('submit', (e) => {
+regForm.addEventListener('submit', e => {
     e.preventDefault();
     let formData = new FormData(e.target);
 
