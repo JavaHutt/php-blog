@@ -5,6 +5,16 @@
             <a class="p-2 text-dark" href="/">Главная</a>
             <a class="p-2 text-dark" href="#">Enterprise</a>
         </nav>
-    <a class="btn btn-outline-primary mr-2 mb-2" href="#">Войти</a>
+    <?php
+        if ($_COOKIE['login'] == ''):
+    ?>
+    <a class="btn btn-outline-primary mr-2 mb-2" href="/authorization">Войти</a>
     <a class="btn btn-outline-primary mb-2" href="/registration">Регистрация</a>
+    <?php
+        else:
+    ?>
+    <a class="btn btn-outline-primary mb-2" href="/authorization">Личный кабинет</a>
+    <?php
+        endif;
+    ?>
 </header>

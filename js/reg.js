@@ -1,14 +1,16 @@
+const regForm = document.querySelector('#regForm');
 const regUser = document.querySelector('#regUser');
 const error = document.querySelector('#error');
 
-regUser.addEventListener('click', () => {
-    let form = new FormData(document.querySelector('#regForm'));
+regForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let formData = new FormData(e.target);
 
     axios({
         method: 'post',
-        url: '../reg/reg',
+        url: '../ajax/reg',
         cache: false,
-        data: form
+        data: formData
     }).then(response => {
         if (response.data == 'Готово') {
             error.classList.remove('show');
