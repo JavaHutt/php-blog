@@ -1,21 +1,20 @@
-const regForm = document.querySelector('#regForm');
-const regUser = document.querySelector('#regUser');
-const error   = document.querySelector('#error');
+const articleForm = document.querySelector('#articleForm');
+const addArticle  = document.querySelector('#addArticle');
 
-regForm.addEventListener('submit', (e) => {
+articleForm.addEventListener('submit', (e) => {
     e.preventDefault();
     let formData = new FormData(e.target);
 
     axios({
         method: 'post',
-        url: '../ajax/reg',
+        url: '../ajax/add_article',
         cache: false,
         data: formData
     }).then(response => {
         if (response.data == 'Готово') {
             error.classList.remove('show');
             error.classList.add('hide');
-            regUser.textContent = 'Всё готово';
+            addArticle.textContent = 'Всё готово';
         } else {
             error.classList.add('show');
             error.textContent = response.data;

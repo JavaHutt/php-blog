@@ -5,6 +5,7 @@
         $website_title = 'Авторизация на сайте';
         require 'blocks/head.php';
     ?>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
 </head>
 <body>
     <?php
@@ -38,13 +39,10 @@
                 include 'blocks/aside.php';
             ?>
         </div>
-        
     </main>
     <?php
         include 'blocks/footer.php';
     ?>
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
 <script src="js/auth.js"></script>
 </body>
 </html>

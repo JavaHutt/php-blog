@@ -5,6 +5,7 @@
         $website_title = 'Регистрация на сайте';
         require 'blocks/head.php';
     ?>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
 </head>
 <body>
     <?php
@@ -36,8 +37,6 @@
     <?php
         include 'blocks/footer.php';
     ?>
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
 <script src="js/reg.js"></script>
 </body>
 </html>
