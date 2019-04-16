@@ -35,6 +35,35 @@
                     <strong><?=$article->intro?></strong>
                     <p><?=$article->text?></p>
                 </div>
+                <h3 class='mt-5'>Комментарии</h3>
+                <form action="/news.php?id=<?=$id?>" method='post'>
+                    <label for="username">Имя</label>
+                    <input type="text" name="username" value="<?=$_COOKIE['login'] ?>" id="username" class="form-control" minlength="3" maxlength="15">
+                    <label for="message">Сообщение</label>
+                    <textarea name="message" id="message" class="form-control"></textarea>
+                    <button type="submit" id='messageSend' class="btn btn-success mt-3 mb-5">Добавить комментарий</button>
+                </form>
+                <?php
+                    if ($_POST['username'] != '' && $_POST['message'] != '') {
+                        $username = trim(filter_var($_POST['username'], FILTER_SANITIZE_STRING));
+                        $message  = trim(filter_var($_POST['message'], FILTER_SANITIZE_STRING));
+
+                        $sql = 'insert into comments(name, message, article_id) values(?, ?, ?)';
+                        $query = $pdo->prepare($sql);
+                        $query->execute([$username, $message, $id]);
+                    }
+                    $sql = 'select * from `comments` where `article_id` = :id order by `id`';
+                    $query = $pdo->prepare($sql);
+                    $query->execute(['id' => $id]);
+                    $comments = $query->fetchAll(PDO::FETCH_OBJ);
+
+                    foreach ($comments as $comment) {
+                        echo "<div class='alert alert-info mb-20'>
+                            <h4>$comment->name</h4>
+                            <p>$comment->message</p>
+                        </div>";
+                    }
+                ?>
             </div>
             <?php
                 include 'blocks/aside.php';
