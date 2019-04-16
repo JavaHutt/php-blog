@@ -1,7 +1,7 @@
 <?php
     $title = trim(filter_var($_POST['title'], FILTER_SANITIZE_STRING));
     $intro = trim(filter_var($_POST['intro'], FILTER_SANITIZE_STRING));
-    $text  = trim(filter_var($_POST['text'], FILTER_SANITIZE_STRING));
+    $text  = trim($_POST['text']);
 
     $error = '';
 

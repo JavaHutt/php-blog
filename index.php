@@ -26,7 +26,9 @@
                                     <h2>$row->title</h2>
                                     <p>$row->intro</p>
                                     <p><b>Автор статьи: </b><mark>$row->author</mark></p>
-                                    <button class='btn btn-warning'>Читать больше...</button>
+                                    <a href='/news.php?id=$row->id' titel='$row->title'>
+                                        <button class='btn btn-warning'>Читать больше...</button>
+                                    </a>
                                 </article>";
                     }
                 ?>
